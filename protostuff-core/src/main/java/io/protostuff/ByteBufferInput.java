@@ -272,7 +272,25 @@ public final class ByteBufferInput implements Input
             this.packedLimit = buffer.position() + length;
         }
     }
-
+    
+    @Override
+    public boolean isPacked() {
+        return packedLimit == 0 && getTagWireType(lastTag) == WIRETYPE_LENGTH_DELIMITED;
+    }
+    
+    @Override
+    public int setPackedAndGetLength() throws IOException {
+        final int length = readRawVarint32();
+        if (length < 0)
+            throw ProtobufException.negativeSize();
+    
+        if (buffer.position() + length > buffer.limit())
+            throw ProtobufException.misreportedSize();
+    
+        this.packedLimit = buffer.position() + length;
+        return length;
+    }
+    
     /**
      * Read a {@code double} field value from the internal buffer.
      */

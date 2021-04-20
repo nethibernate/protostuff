@@ -139,5 +139,9 @@ public interface Input
      */
     public void transferByteRangeTo(Output output, boolean utf8String, int fieldNumber,
             boolean repeated) throws IOException;
+    
+    default boolean isPacked() { return false; }
+    
+    default int setPackedAndGetLength() throws IOException{ return 0; }
 
 }

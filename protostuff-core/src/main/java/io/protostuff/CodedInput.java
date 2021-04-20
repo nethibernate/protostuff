@@ -1227,7 +1227,22 @@ public final class CodedInput implements Input
             this.packedLimit = getTotalBytesRead() + length;
         }
     }
-
+    
+    @Override
+    public boolean isPacked() {
+        return packedLimit == 0 && WireFormat.getTagWireType(lastTag) == WIRETYPE_LENGTH_DELIMITED;
+    }
+    
+    @Override
+    public int setPackedAndGetLength() throws IOException {
+        final int length = readRawVarint32();
+        if (length < 0)
+            throw ProtobufException.negativeSize();
+    
+        this.packedLimit = getTotalBytesRead() + length;
+        return length;
+    }
+    
     @Override
     public byte[] readByteArray() throws IOException
     {

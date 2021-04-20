@@ -283,7 +283,25 @@ public final class ByteArrayInput implements Input
             this.packedLimit = this.offset + length;
         }
     }
-
+    
+    @Override
+    public boolean isPacked() {
+        return packedLimit == 0 && getTagWireType(lastTag) == WIRETYPE_LENGTH_DELIMITED;
+    }
+    
+    @Override
+    public int setPackedAndGetLength() throws IOException {
+        final int length = readRawVarint32();
+        if (length < 0)
+            throw ProtobufException.negativeSize();
+    
+        if (offset + length > limit)
+            throw ProtobufException.misreportedSize();
+    
+        this.packedLimit = this.offset + length;
+        return length;
+    }
+    
     /**
      * Read a {@code double} field value from the internal buffer.
      */
