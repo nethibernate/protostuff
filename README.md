@@ -12,6 +12,11 @@ A java serialization library with built-in support for forward-backward compatib
 
 For more information, go to https://protostuff.github.io/docs/
 
+### Different from original protostuff
+- add two method for packed repeated field: isPacked and setPackedAndGetLength, to the Input.java interface.
+  (these two methods are used in protostuff-generator generated source codes to check and read packed repeated fields) 
+- changed java compiler to java 8
+
 ## Maven
 
 1. For the core formats (protostuff and protobuf)
@@ -156,7 +161,7 @@ Questions/Concerns/Suggestions
 Requirements
 ------------
 
-Java 1.6 or higher
+Java 8 or higher
 
 Build Requirements
 ------------------
