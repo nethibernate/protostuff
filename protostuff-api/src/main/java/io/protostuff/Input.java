@@ -142,6 +142,6 @@ public interface Input
     
     default boolean isPacked() { return false; }
     
-    default int setPackedAndGetLength() throws IOException{ return 0; }
+    default int setPackedAndGetLength() throws IOException{ return -1; }
 
 }
