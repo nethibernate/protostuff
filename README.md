@@ -18,9 +18,9 @@ For more information, go to https://protostuff.github.io/docs/
    
   ```xml
   <dependency>
-    <groupId>io.protostuff</groupId>
+    <groupId>io.github.nethibernate</groupId>
     <artifactId>protostuff-core</artifactId>
-    <version>1.7.2</version>
+    <version>1.7.3</version>
   </dependency>
   ```
 
@@ -28,9 +28,9 @@ For more information, go to https://protostuff.github.io/docs/
    
   ```xml
   <dependency>
-    <groupId>io.protostuff</groupId>
+    <groupId>io.github.nethibernate</groupId>
     <artifactId>protostuff-runtime</artifactId>
-    <version>1.7.2</version>
+    <version>1.7.3</version>
   </dependency>
   ```
 
