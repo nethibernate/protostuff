@@ -2,16 +2,29 @@
   <parent>
     <artifactId>protostuff</artifactId>
     <groupId>io.github.nethibernate</groupId>
-    <version>1.7.4</version>
+    <version>1.7.3</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>protostuff-json</artifactId>
-  <name>protostuff :: json</name>
-  <description>protostuff serialization using json format</description>
+  <artifactId>protostuff-msgpack</artifactId>
+  <name>protostuff :: msgpack</name>
+  <description>protostuff serialization using message pack format</description>
   <packaging>jar</packaging>
 
+  <properties>
+    <msgpack.version>0.8.11</msgpack.version>
+  </properties>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+  </build>
+
   <dependencies>
+    <dependency>
+       <groupId>org.msgpack</groupId>
+       <artifactId>msgpack-core</artifactId>
+       <version>${msgpack.version}</version>
+    </dependency>  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -69,20 +82,10 @@
       <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>io.github.nethibernate</groupId>
       <artifactId>protostuff-api</artifactId>
       <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.dataformat</groupId>
-      <artifactId>jackson-dataformat-smile</artifactId>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 

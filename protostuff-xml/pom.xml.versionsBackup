@@ -2,14 +2,18 @@
   <parent>
     <artifactId>protostuff</artifactId>
     <groupId>io.github.nethibernate</groupId>
-    <version>1.7.4</version>
+    <version>1.7.3</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>protostuff-json</artifactId>
-  <name>protostuff :: json</name>
-  <description>protostuff serialization using json format</description>
+  <artifactId>protostuff-xml</artifactId>
+  <name>protostuff :: xml</name>
+  <description>protostuff serialization using xml format</description>
   <packaging>jar</packaging>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+  </build>
 
   <dependencies>
     <dependency>
@@ -69,20 +73,10 @@
       <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>io.github.nethibernate</groupId>
       <artifactId>protostuff-api</artifactId>
       <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.dataformat</groupId>
-      <artifactId>jackson-dataformat-smile</artifactId>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 

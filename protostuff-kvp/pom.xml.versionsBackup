@@ -2,29 +2,18 @@
   <parent>
     <artifactId>protostuff</artifactId>
     <groupId>io.github.nethibernate</groupId>
-    <version>1.7.4</version>
-    <relativePath>../pom.xml</relativePath>
+    <version>1.7.3</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>protostuff-yaml</artifactId>
-  <name>protostuff :: yaml</name>
-  <description>protostuff serialization using yaml format</description>
-  <packaging>jar</packaging>
-
-  <build>
-    <defaultGoal>install</defaultGoal>
-  </build>
+  <artifactId>protostuff-kvp</artifactId>
+  <name>protostuff :: kvp</name>
+  <description>binary key-value-pair serialization format (see http://projects.unbit.it/uwsgi/wiki/uwsgiProtocol)
+  </description>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.github.nethibernate</groupId>
-      <artifactId>protostuff-core</artifactId>
-      <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
